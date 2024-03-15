@@ -1,4 +1,8 @@
 # THIS REPO IS WORK IN PROGRESS
+TODO:
+   * add corrected files header files
+   * add examplar project
+   * edit README.md such that it makes sense
 # rosserial_stm32
 
 ## Note
