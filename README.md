@@ -11,7 +11,11 @@ If you use the package for other series, please edit [the following line](https:
 It may happen code will work even with HAL library for other STM32 processor family. 
 **If you run into troubles, please check src/ros_lib/STM32Hardware.h first**
 
-
+## Attached example
+An Attached example consists of a STM32Cube project without generated Ros libraries and STM32CubeIDE generated header and C files. 
+Project implements simple publishers and subscriber.
+Project demonstrates blocking behaviour in case of communication being too slow to flush output buffer fast enough.
+Application uses baud rate 480600bps and when one publisher is used, can achieve up to `~2.5kHz` publish rate.
 
 ## Generate code
 $ cd _target_workspace_ (It should contain Inc and Src directories).  
@@ -25,4 +29,5 @@ $ rosrun rosserial_stm32 make_libraries.py .
 3. Copy files `ros.h` and `STM32Hardware.h` to `Core/Inc`
 4. In your `.ioc` file under `connectivity` and select `UART2` and set DMA same as in the examplar file `g031_rosserial.ioc`
 5. Make sure your code implements iterrupt function void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) same as in examplar file `main.cpp`
+6. When generating a code useing STM32CubeIDE, make sure you either generate `main.cpp`, if `main.c` keeps getting generated, you can simply copy changes into `main.cpp` and remove `main.c`
    
