@@ -1,8 +1,4 @@
 # THIS REPO IS WORK IN PROGRESS
-TODO:
-   * add corrected files header files
-   * add examplar project
-   * edit README.md such that it makes sense
 # rosserial_stm32
 
 ## Note
@@ -10,6 +6,7 @@ This is a part of [rosserial](https://github.com/ros-drivers/rosserial) reposito
 
 ## Limitation
 The original code is focused on STM32F3xx, 4xx, and 7xx series and it uses the [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) or [STM32CubeMX HAL](http://www.st.com/en/development-tools/stm32cubemx.html).  
+Although we ran this code on STM32G0xx which leads us to believe, this code will run on any STM device supporting HAL.
 If you use the package for other series, please edit [the following line](https://github.com/yoneken/rosserial_stm32/blob/master/src/ros_lib/STM32Hardware.h#L38) on src/ros_lib/STM32Hardware.h with corresponding HAL library. 
 It may happen code will work even with HAL library for other STM32 processor family. 
 **If you run into troubles, please check src/ros_lib/STM32Hardware.h first**
@@ -26,6 +23,6 @@ $ rosrun rosserial_stm32 make_libraries.py .
 1. Generate headers for STM32 (use [rosserial_client](http://wiki.ros.org/rosserial_client) or [rosserial_arduino](http://wiki.ros.org/rosserial_arduino))
 2. Paste all generated header files into `Core/Inc` directory
 3. Copy files `ros.h` and `STM32Hardware.h` to `Core/Inc`
-4. In your `.ioc` file under `connectivity` and select `UART2` accordingly to the examplar file `g031_rosserial.ioc`
+4. In your `.ioc` file under `connectivity` and select `UART2` and set DMA same as in the examplar file `g031_rosserial.ioc`
 5. Make sure your code implements iterrupt function void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) same as in examplar file `main.cpp`
    
