@@ -1,4 +1,3 @@
-# THIS REPO IS WORK IN PROGRESS
 # rosserial_stm32
 
 ## Note
